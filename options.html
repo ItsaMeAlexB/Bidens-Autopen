@@ -1,0 +1,33 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>AutoFill Agent settings</title>
+<style>
+ body{font:14px system-ui,sans-serif;max-width:760px;margin:24px auto;padding:0 16px;color:#111}
+ h2{margin-top:28px} label{display:block;margin:10px 0 3px;font-weight:600}
+ input[type=text],input[type=password],input[type=number],textarea{width:100%;box-sizing:border-box;font:inherit;padding:6px}
+ textarea{min-height:90px} button{padding:6px 14px;font:inherit;cursor:pointer;margin-top:8px}
+ .doc{display:flex;justify-content:space-between;align-items:center;border:1px solid #ddd;border-radius:6px;padding:8px 10px;margin:6px 0}
+ .hint{color:#6b7280;font-size:12px} .row{display:flex;gap:8px;align-items:center}
+</style></head><body>
+<h1>AutoFill Agent</h1>
+<h2>DeepInfra</h2>
+<label>API key</label><input type="password" id="apiKey" autocomplete="off">
+<label>Model</label><input type="text" id="model">
+<div class="hint">Any chat model on DeepInfra that follows JSON instructions well. Bigger models plan more reliably.</div>
+<label>Base URL</label><input type="text" id="baseUrl">
+<label>Max agent rounds per run</label><input type="number" id="maxRounds" min="1" max="20">
+<label>Standing profile notes (used on every form)</label>
+<textarea id="profile" placeholder="e.g. Work authorisation: EU citizen. Notice period: 1 month. Salary expectation: 60-70k EUR. Tone for written answers: direct, warm, no buzzwords."></textarea>
+<button id="saveSettings">Save settings</button> <span class="hint" id="s1"></span>
+
+<h2>Documents</h2>
+<div id="list"></div>
+<h3>Add / edit document</h3>
+<label>Name (what the agent will call it, e.g. "CV", "Insurance details")</label><input type="text" id="dname">
+<label>Original file (optional, uploaded as-is when a form asks for a file)</label><input type="file" id="dfile">
+<label>Text content (what the AI reads; for a CV, light markdown works best: # Name, ## Section, - bullets)</label>
+<textarea id="dtext" style="min-height:220px"></textarea>
+<div class="hint" id="fhint">.txt .md .csv .json and .docx are read automatically. For PDFs, paste the text above (the PDF itself is still kept for uploads).</div>
+<label class="row"><input type="checkbox" id="dtailor"> Tailor to each job when a form asks for this file (rewrites it from the text above, then exports PDF/DOCX as the form requires)</label>
+<button id="saveDoc">Save document</button> <button id="clearDoc">Clear form</button>
+<script src="docgen.js"></script><script src="options.js"></script>
+</body></html>

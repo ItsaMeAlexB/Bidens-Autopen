@@ -1,0 +1,22 @@
+{
+  "manifest_version": 2,
+  "name": "AutoFill Agent",
+  "version": "0.1.0",
+  "description": "LLM-driven form filler: uses your stored documents (CV, insurance sheet, ...) to fill any web form. Never submits.",
+  "browser_specific_settings": {
+    "gecko": { "id": "autofill-agent@local", "strict_min_version": "113.0" }
+  },
+  "permissions": ["storage", "unlimitedStorage", "tabs", "webNavigation", "<all_urls>"],
+  "background": { "scripts": ["docgen.js", "background.js"] },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "all_frames": true,
+      "match_about_blank": true,
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "browser_action": { "default_title": "AutoFill Agent", "default_popup": "popup.html" },
+  "options_ui": { "page": "options.html", "open_in_tab": true }
+}

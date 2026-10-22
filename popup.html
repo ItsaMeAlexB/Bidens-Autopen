@@ -1,0 +1,22 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+ body{font:13px system-ui,sans-serif;width:320px;margin:0;padding:12px;color:#111}
+ h3{margin:0 0 8px;font-size:14px}
+ label.d{display:flex;gap:6px;align-items:center;margin:3px 0}
+ textarea{width:100%;box-sizing:border-box;height:56px;margin:8px 0;font:inherit}
+ button{padding:6px 12px;font:inherit;cursor:pointer}
+ #go{background:#2563eb;color:#fff;border:0;border-radius:6px}
+ #stop{display:none}
+ .m{color:#6b7280;font-size:12px;margin-top:8px}
+ a{color:#2563eb;cursor:pointer}
+</style></head>
+<body>
+ <h3>AutoFill Agent</h3>
+ <div id="docs"></div>
+ <textarea id="instr" placeholder="Optional instruction, e.g. 'use my CV, emphasise the Python work' or 'this is for my travel insurance claim'"></textarea>
+ <button id="go">Fill this page</button> <button id="stop">Stop</button>
+ <div class="m" id="msg">Progress and results appear in a panel on the page. It never presses the final submit.</div>
+ <div class="m"><a id="opts">Settings &amp; documents</a></div>
+ <script src="popup.js"></script>
+</body></html>
