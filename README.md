@@ -37,7 +37,7 @@ Three layers: the prompt forbids it; the content script blocks clicks on submit-
 in a form with 3+ fields); and any form `submit` event not caused by an approved Next/Continue click is cancelled during a run.
 
 ## Limits (be aware)
-- Your document text and the page text are sent to DeepInfra. Do not use this with data you can't share with that provider. Check their retention policy.
+- Your document text and the page text are sent to DeepInfra. Do not use this with data you can't share with that provider. DeepInfra claim to have zero-data retention.
 - Documents are stored unencrypted in the extension's local storage, including the API key.
 - Tailored CVs are plain-styled (headings/bullets), not your original layout. Untailored uploads send your original file.
 - Custom widgets (fancy date pickers, canvas forms, sites that block synthetic events) may fail; the report tells you which.
